@@ -7,21 +7,42 @@ library(kableExtra) # for nicer tables
 library(here)
 # ^GDAXI
 dax_raw1 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "2002-01-01", to = "2002-12-31")
+                   from = "1974-01-01", to = "1974-12-31")
 
 dax_raw2 <- tq_get("^IXIC", get = "stock.prices",
-                  from = "2006-01-01", to = "2006-12-31")
+                   from = "1978-01-01", to = "1978-12-31")
 
 dax_raw3 <- tq_get("^IXIC", get = "stock.prices",
-                  from = "2010-01-01", to = "2010-12-31")
+                   from = "1982-01-01", to = "1982-12-31")
 
 dax_raw4 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "2014-01-01", to = "2014-12-31")
+                   from = "1986-01-01", to = "1986-12-31")
 
 dax_raw5 <- tq_get("^IXIC", get = "stock.prices",
+                   from = "1990-01-01", to = "1990-12-31")
+
+dax_raw6 <- tq_get("^IXIC", get = "stock.prices",
+                   from = "1994-01-01", to = "1994-12-31")
+
+dax_raw7 <- tq_get("^IXIC", get = "stock.prices",
+                   from = "1998-01-01", to = "1998-12-31")
+
+dax_raw8 <- tq_get("^IXIC", get = "stock.prices",
+                   from = "2002-01-01", to = "2002-12-31")
+
+dax_raw9 <- tq_get("^IXIC", get = "stock.prices",
+                  from = "2006-01-01", to = "2006-12-31")
+
+dax_raw10 <- tq_get("^IXIC", get = "stock.prices",
+                  from = "2010-01-01", to = "2010-12-31")
+
+dax_raw11 <- tq_get("^IXIC", get = "stock.prices",
+                   from = "2014-01-01", to = "2014-12-31")
+
+dax_raw12 <- tq_get("^IXIC", get = "stock.prices",
                    from = "2018-01-01", to = "2018-12-31")
 
-dax_raw <- rbind(dax_raw1, dax_raw2, dax_raw3, dax_raw4, dax_raw5)
+dax_raw <- rbind(dax_raw1, dax_raw2, dax_raw3, dax_raw4, dax_raw5, dax_raw6, dax_raw7, dax_raw8, dax_raw9, dax_raw10, dax_raw11, dax_raw12)
 
 dax <- dax_raw %>%
   select(date, price = adjusted)
@@ -42,7 +63,7 @@ dax %>%
   theme_classic()
 
 dax_nested <- dax %>%
-  filter(date >= "2002-01-01" & date <= "2018-12-31") %>%
+  filter(date >= "1974-01-01" & date <= "2018-12-31") %>%
   mutate(year = year(date)) %>%
   group_by(year) %>%
   nest()
