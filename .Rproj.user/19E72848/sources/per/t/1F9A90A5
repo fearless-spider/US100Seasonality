@@ -3,7 +3,7 @@
     "path": "~/Code/R/US100Seasonality/main.R",
     "project_path": "main.R",
     "type": "r_source",
-    "hash": "2393564759",
+    "hash": "468570100",
     "contents": "",
     "dirty": false,
     "created": 1667609883321.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "236,73",
-        "scrollLine": "56"
+        "cursorPosition": "235,73",
+        "scrollLine": "84"
     },
     "folds": "",
-    "lastKnownWriteTime": 1669171365,
+    "lastKnownWriteTime": 1670016291,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1669171365743,
+    "last_content_update": 1670016291209,
     "read_only": false,
     "read_only_alternatives": []
 }

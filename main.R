@@ -7,40 +7,40 @@ library(kableExtra) # for nicer tables
 library(here)
 # ^GDAXI
 dax_raw1 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "1974-01-01", to = "1974-12-31")
+                   from = "1975-01-01", to = "1975-12-31")
 
 dax_raw2 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "1978-01-01", to = "1978-12-31")
+                   from = "1979-01-01", to = "1979-12-31")
 
 dax_raw3 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "1982-01-01", to = "1982-12-31")
+                   from = "1983-01-01", to = "1983-12-31")
 
 dax_raw4 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "1986-01-01", to = "1986-12-31")
+                   from = "1987-01-01", to = "1987-12-31")
 
 dax_raw5 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "1990-01-01", to = "1990-12-31")
+                   from = "1991-01-01", to = "1991-12-31")
 
 dax_raw6 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "1994-01-01", to = "1994-12-31")
+                   from = "1995-01-01", to = "1995-12-31")
 
 dax_raw7 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "1998-01-01", to = "1998-12-31")
+                   from = "1999-01-01", to = "1999-12-31")
 
 dax_raw8 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "2002-01-01", to = "2002-12-31")
+                   from = "2003-01-01", to = "2003-12-31")
 
 dax_raw9 <- tq_get("^IXIC", get = "stock.prices",
-                  from = "2006-01-01", to = "2006-12-31")
+                  from = "2007-01-01", to = "2007-12-31")
 
 dax_raw10 <- tq_get("^IXIC", get = "stock.prices",
-                  from = "2010-01-01", to = "2010-12-31")
+                  from = "2011-01-01", to = "2011-12-31")
 
 dax_raw11 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "2014-01-01", to = "2014-12-31")
+                   from = "2015-01-01", to = "2015-12-31")
 
 dax_raw12 <- tq_get("^IXIC", get = "stock.prices",
-                   from = "2018-01-01", to = "2018-12-31")
+                   from = "2019-01-01", to = "2019-12-31")
 
 dax_raw <- rbind(dax_raw1, dax_raw2, dax_raw3, dax_raw4, dax_raw5, dax_raw6, dax_raw7, dax_raw8, dax_raw9, dax_raw10, dax_raw11, dax_raw12)
 
@@ -63,7 +63,7 @@ dax %>%
   theme_classic()
 
 dax_nested <- dax %>%
-  filter(date >= "1974-01-01" & date <= "2018-12-31") %>%
+  filter(date >= "1974-01-01" & date <= "2019-12-31") %>%
   mutate(year = year(date)) %>%
   group_by(year) %>%
   nest()
@@ -95,8 +95,7 @@ dax_seasonality_summary %>%
   geom_line(aes(y = mean)) +
   labs(x = "Trading Days", y = "Cumulative Returns (in %)") +
   scale_x_continuous(expand = c(0, 0), breaks = pretty_breaks(20)) +
-  scale_y_continuous(breaks = pretty_breaks()) +
-  theme_classic()
+  scale_y_continuous(breaks = pretty_breaks())
 
 dax_seasonality_summary %>%
   ggplot(aes(x = trading_day)) +
